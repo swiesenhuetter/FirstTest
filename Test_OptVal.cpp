@@ -35,6 +35,18 @@ TEST_CASE("test move") {
     REQUIRE(*o2.opt == 1.2345);
 }
 
+TEST_CASE("test access"){
+    OptVal<double> opt{1.1};
+    REQUIRE(1.1 == *opt);
+}
+
+TEST_CASE("test check"){
+    OptVal<double> o1{1.1};
+    OptVal<double> o2;
+    REQUIRE(o1);
+    REQUIRE_FALSE(o2);
+}
+
 int main(int argc, char** argv) {
     constexpr auto numbits {sizeof(long)*8};
     std::cout << "we are on a " << numbits << " bit platform\n";

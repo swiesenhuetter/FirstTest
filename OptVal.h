@@ -1,3 +1,4 @@
+#pragma once
 #ifndef OPTVAL_H
 #define OPTVAL_H
 
@@ -34,6 +35,14 @@ struct OptVal {
             return true;
         else
             return false;
+    }
+
+    operator bool() const {
+        return static_cast<bool>(opt);
+    }
+
+    T& operator*() {
+        return *opt;
     }
 };
 
