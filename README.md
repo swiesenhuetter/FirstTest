@@ -1,0 +1,3 @@
+# FirstTest
+This is a C++ optional value class. before C++17 there was no std::optional. I needed optional doubles and integers because of file deserialization. The files may or may not contain some value. Now the problem is what to do if in the file the value for one of the members is missing. One possible solution is to add a "valid" or "present" boolean for each optional value. Another possibility is to use pointers. That can become a difficult resource handling problem if we do not use smart pointers. Here I try to solve the problem by wrapping unique pointer. The problem is that std::unique_ptr can not be copied, only moved whereas optionals can be copied. 
+Open question: can this can be simplified by using std::shared_ptr? 
