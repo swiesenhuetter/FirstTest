@@ -35,7 +35,7 @@ TEST_CASE("test move") {
     REQUIRE(*o2.opt == 1.2345);
 }
 
-TEST_CASE("test access"){
+TEST_CASE("test dereference access"){
     OptVal<double> opt{1.1};
     REQUIRE(1.1 == *opt);
 }
