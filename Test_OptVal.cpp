@@ -36,8 +36,8 @@ TEST_CASE("test move") {
 }
 
 int main(int argc, char** argv) {
-    constexpr auto bitnum {sizeof(long)*8};
-    std::cout << "we are on a " << bitnum << " bit platform\n";
+    constexpr auto numbits {sizeof(long)*8};
+    std::cout << "we are on a " << numbits << " bit platform\n";
     Catch::Session().run(argc, argv);
     return 5;
 }
