@@ -12,27 +12,27 @@ TEST_CASE("test compare"){
 TEST_CASE("test assignment"){
     OptVal<double> o1{9};
     OptVal<double> o2;
-    REQUIRE( *o1.opt == 9.000);
+    REQUIRE( *o1 == 9.0);
     o2 = o1;
-    REQUIRE( *o1.opt == 9.000);
-    REQUIRE( *o2.opt == 9.000);
+    REQUIRE( *o1 == 9.0);
+    REQUIRE( *o2 == 9.0);
     OptVal<double> o3;
     o1 = o3;
-    REQUIRE(o1.opt == nullptr);
+    REQUIRE_FALSE(o1);
 }
 
 TEST_CASE("test copy"){
     OptVal<double> o1{9};
     OptVal<double> o2(o1);
-    REQUIRE( *o1.opt == 9.000);
-    REQUIRE( *o2.opt == 9.000);
+    REQUIRE( *o1 == 9.0);
+    REQUIRE( *o2 == 9.0);
 }
 
 TEST_CASE("test move") {
     OptVal<double> o1{1.2345};
     OptVal<double> o2 = std::move(o1);
-    REQUIRE(o1.opt == nullptr);
-    REQUIRE(*o2.opt == 1.2345);
+    REQUIRE_FALSE(o1);
+    REQUIRE(*o2 == 1.2345);
 }
 
 TEST_CASE("test dereference access"){

@@ -5,9 +5,10 @@
 #include <memory>
 
 template<typename T>
-struct OptVal {
+class OptVal {
     std::unique_ptr<T> opt;
 
+public:
     OptVal(const T& val) :opt(std::make_unique<T>(val)){}
 
     OptVal(const OptVal& orig)
